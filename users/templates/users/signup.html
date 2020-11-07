@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+
+{% block head %}
+
+{% endblock head %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+{% load static %}
+        <div class="row mb-5">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom display">
+                        <h3 class="float-left">Register Now</h3>
+
+                        <img src="{% static 'img/logo.png' %}" class="logo float-right pt-1" width="25">
+                        </legend>
+
+                        {{ form | crispy }}
+                    </fieldset>
+                    <div class="form-grounp">
+                        <button class="btn mainbtn" type="submit">Sign Up</button>
+                        <small class="float-right text-muted">Already have a Account ?<a href="{% url 'login' %}" class="text-dark"> Login</a></small>
+
+                    </div>
+                </form>
+               <br>
+           </div>
+           <div class="col-md-4">
+           </div>
+       </div>
+
+
+{% endblock body %}
